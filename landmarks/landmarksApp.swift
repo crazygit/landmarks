@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct landmarksApp: App {
+    @StateObject private var modelData = ModelData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // 注入环境变量，可以在任何子视图中获取该变量
+            ContentView().environmentObject(modelData)
         }
     }
 }
