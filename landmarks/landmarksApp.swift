@@ -15,5 +15,9 @@ struct landmarksApp: App {
             // 注入环境变量，可以在任何子视图中获取该变量
             ContentView().environmentObject(modelData)
         }
+
+        #if os(watchOS)
+            WKNotificationScene(controller: NotificationController.self, category: "LandmarkNear")
+        #endif
     }
 }
